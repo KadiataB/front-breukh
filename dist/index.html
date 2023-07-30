@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>breukh-transfert</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .message-container {
+ 
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .line-separator {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .line-separator1 {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    h5{
+        width: 110px;
+    }
+    .info-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(100, 100, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle i {
+  color: white;
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="container mt-4" style="background-image: linear-gradient(to bottom right, #072227, #00f7ff); ;color: #ffffff;">
+      <div class="message-container">
+          <div><h2>Breukh-tranfert</h2> </div>
+          
+        </div>
+  
+        <h5 id="expediteur">Expéditeur</h5>
+        <div class="row line-separator">
+          <div class="col-md-12 text-center">
+          </div>
+        </div>
+    
+    <form>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="input1">N° Compte/tel</label>
+          <input type="text" class="form-control" id="input1" placeholder="">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="input2">Nom complet</label>
+          <div class="d-flex">
+            <input type="text" class="form-control" id="nom" placeholder="">
+            <div class="info-icon">
+              <div class="circle">
+                <i class="fas fa-info"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <h5 id="transaction1">Transaction</h5>
+      <div class="row line-separator">
+        <div class="col-md-12 text-center">
+        </div>
+      </div>
+      
+
+
+      <div class="mb-3">
+        <label for="input3">Montant</label>
+        <input type="number" class="form-control" id="input3" placeholder="">
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="select1">Fournisseur</label>
+          <select class="form-select" id="fournisseur">
+            <option selected>Choisir</option>
+            <option value="OM">OM</option>
+            <option value="WV">WV</option>
+            <option value="WR">WR</option>
+            <option value="CB">CB</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="select2">Transaction</label>
+          <select class="form-select" id="transaction">
+            <option selected>Choisir</option>
+            <option value="depot">depot</option>
+            <option value="retrait">retrait</option>
+            <option value="transfert">transfert</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row line-separator1">
+            <h5 id="destinataire">Destinataire</h5>
+          <div class="col-md-12 text-center">
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="input4" id="label1">N° Compte/tel</label>
+          <input type="text" class="form-control" id="input4" placeholder="">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="input5" id="label2">Nom complet</label>
+          <input type="text" class="form-control" id="input5" placeholder="">
+        </div>
+      </div>
+
+     <center><button type="button" id="btn" class="btn" style="background-image: linear-gradient(to bottom right, #072227, #00f7ff);width: 120px;font-size: 1.5rem; color: #ffffff;">Valider</button></center> 
+    </form>
+  </div>
+
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="transactionModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Transaction Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td><strong>Type:</strong></td>
+              <td id="modalType"></td>
+            </tr>
+            <tr>
+              <td><strong>Montant:</strong></td>
+              <td id="modalMontant"></td>
+            </tr>
+            <tr>
+              <td><strong>Date:</strong></td>
+              <td id="modalDate"></td>
+            </tr>
+            <!-- <tr>
+              <td><strong>Code:</strong></td>
+              <td id="modalCode"></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
